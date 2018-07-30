@@ -1,6 +1,6 @@
 <template>
-    <div :class="list.whatsNew.tag">
-        <app-article-preview :listItem="list.whatsNew.data" />
+    <div :class="data.class">
+        <app-article-preview :dataItem="data.element_item.list_items" />
     </div>
 </template>
 
@@ -9,20 +9,23 @@ import AppArticlePreview from "./ArticlePreview.vue";
 export default {
   name: "articlePreviewList",
   props: {
-    list: Object,
+    data: Object,
     requred: true
   },
   components: {
     AppArticlePreview
+  },
+  computed: {
+    layoutPicker() {
+      // Pick class for layout
+    }
   }
+
 };
 </script>
 
 <style lang="scss">
 .whats-new  {
-  display: grid;
-  width: 90%;
-  margin: 0 auto;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto;
   grid-column-gap: 42px;

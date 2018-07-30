@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div v-for="(item,index) in listItem" :key="index" class="whats-newitem1">
-            <img :src="item.imgUrl" alt="">
+        <div v-for="(item,index) in dataItem" :key="index" class="whats-newitem1">
+            <img :src="item.id" alt="item">
             <h1>
                 {{ item.title }}
             </h1>
-            <p> {{ item.content }} </p>
+            <p> </p>
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@
     export default {
         name: 'AppArticlePreview',
         props: {
-            listItem: Array,
+            dataItem: Array,
             required: true
         }
         
