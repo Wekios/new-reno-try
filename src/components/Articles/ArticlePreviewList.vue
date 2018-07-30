@@ -16,9 +16,9 @@ export default {
     AppArticlePreview
   },
   computed: {
-    layoutPicker() {
+    // layoutPicker() {
       // Pick class for layout
-    }
+    // }
   }
 
 };
