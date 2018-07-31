@@ -2,12 +2,7 @@
   <div class="home">
     <!-- <test-component :data="homepage[0]"/>
     <app-article-preview-list class="article-preview-list" :data="homepage[1]"/> -->
-    <component
-          v-for="(component,index) in homepage"
-          :is="component.type"
-          :data="component"
-          :key="index"
-          >
+    <component v-for="(component,index) in homepage" :is="component.type" :data="component" :key="index">
     </component>
   </div>
 </template>
@@ -24,7 +19,7 @@ export default {
       homepage: [
         {
           type: "test-component",
-          class: 'Layout2',
+          class: "Layout2",
           data: {
             custom_item_name: "",
             item_id: "62",
@@ -171,20 +166,7 @@ export default {
               }
             ]
           }
-        },
-        {
-          type: "test-component",
-          class: 'Layout3',
-          data: {
-            custom_item_name: "",
-            item_id: "62",
-            item_name: "HP Slider"
-          },
-          element_item: {
-            id: 62,
-            title: "HP Slider"
-          }
-        },
+        }
       ]
     };
   },
@@ -192,14 +174,17 @@ export default {
     Navigation,
     TestComponent,
     AppArticlePreviewList
+  },
+  mounted() {
+    console.log(this.homepage[1].element_item.list_items);
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.article-preview-list {
+.home {
   display: grid;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
 }
 </style>

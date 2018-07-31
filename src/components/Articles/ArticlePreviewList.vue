@@ -1,7 +1,7 @@
 <template>
-    <div :class="data.class">
-        <app-article-preview :dataItem="data.element_item.list_items" />
-    </div>
+  <div class="grid-list" :class="data.class">
+    <app-article-preview v-for="dataItem in data.element_item.list_items" :key="dataItem.id" :dataItem="dataItem" />
+  </div>
 </template>
 
 <script>
@@ -17,49 +17,63 @@ export default {
   },
   computed: {
     // layoutPicker() {
-      // Pick class for layout
+    // Pick class for layout
     // }
   }
-
 };
 </script>
 
 <style lang="scss">
-.whats-new  {
-  grid-template-columns: 1fr 2fr 1fr;
+.grid-list {
+  display: grid;
+  text-align: left;
+  > div {
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      top: -10px;
+    }
+  }
+}
+.layout1 {
+  grid-template-columns: 1fr 2fr 3fr;
+  // grid-template-rows: 136px 456px 272px;
   grid-template-rows: auto;
-  grid-column-gap: 42px;
+  align-items: baseline;
+  grid-column-gap: 32px;
   grid-row-gap: 0;
   &__title {
     grid-column: 1;
   }
-  &__item1 {
-    grid-row-start: 2;
+  .item1 {
+    grid-row-start: 1;
     grid-column-start: 1;
+    align-self: baseline;
+    // height: 264px;
   }
-  &__item2 {
-    grid-row-start: 2;
+
+  .item2 {
+    grid-row-start: 1;
     grid-column-start: 2;
+    align-self: baseline;
+    // height: 456px;
   }
-  &__item3 {
+
+  .item3 {
     grid-row-start: 1;
     grid-column-start: 3;
+    // height: 400px;
   }
-  &__item4 {
-    grid-row-start: 1;
-    grid-column-start: 4;
-  }
-  &__item5 {
-    grid-row-start: 3;
-    grid-column-start: 1;
-  }
-  &__item6 {
-    grid-row-start: 4;
-    grid-column-start: 2;
-  }
-  &__item7 {
-    grid-row-start: 4;
-    grid-column: 3 / -1;
+
+  .item4 {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    // height: 224px;
+    img {
+      width: 50%;
+    }
   }
 }
 
